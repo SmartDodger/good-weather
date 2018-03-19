@@ -1,3 +1,5 @@
-<p>
-  tabs-calendar works!
-</p>
+<div class="container">
+  <tabset class="tab-calendar-day">
+    <tab *ngFor="let item of daysWeeks" [heading]="item">{{item}}</tab>
+  </tabset>
+</div>

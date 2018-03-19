@@ -1,15 +1,16 @@
 @import "../../assets/scss/utils/colors";
 
 .form-search {
+  margin: 40px 0;
   width: 100%;
-  border-bottom: 1px solid $light-blue / 1.2;
+  border-bottom: 1px solid $blue;
   position: relative;
 
   input[type="text"] {
     height: 40px;
     font-size: 20px;
     border: none;
-    color: $light-blue / 1.2;
+    color: $blue;
     text-align: center;
     width: 100%;
     padding: 0 45px;
@@ -23,7 +24,7 @@
     border: 0;
     box-shadow: none;
     cursor: pointer;
-    color: $light-blue / 1.2;
+    color: $blue;
     width: 42px;
     position: absolute;
     right: 0;

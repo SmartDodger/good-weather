@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { TabsModule } from 'ngx-bootstrap';
 import { MainMenuComponent } from './header/main-menu/main-menu.component';
 import { LoginComponent } from './header/login/login.component';
 import { SearchComponent } from './search/search.component';
@@ -21,7 +21,8 @@ import { TabsCalendarComponent } from './tabs-calendar/tabs-calendar.component';
   ],
   imports: [
     BrowserModule,
-    CarouselModule
+    TabsModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

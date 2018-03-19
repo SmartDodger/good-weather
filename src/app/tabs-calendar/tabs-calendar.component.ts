@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsCalendarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
+  daysWeeks = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
   ngOnInit() {
   }
 

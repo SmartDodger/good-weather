@@ -1,0 +1,30 @@
+.tab-calendar-day {
+  .nav-tabs {
+    display: flex;
+    justify-content: space-between;
+    border-color: $light-blue / 1.2;
+
+    .nav-item {
+
+    }
+
+    .nav-link {
+      color: $texas-rose;
+
+      &:hover,
+      &:focus {
+        border-color: $blue;
+      }
+
+      &.active {
+        border-color: $blue;
+        border-bottom-color: white;
+
+        &:hover,
+        &:focus {
+          border-bottom-color: white;
+        }
+      }
+    }
+  }
+}
