@@ -1,6 +1,8 @@
+@import "../../assets/scss/utils/colors";
+
 .logo {
   a {
-    color: #6a8fff;
+    color: $light-blue;
     font-size: 30px;
     font-weight: 700;
     line-height: 32px;

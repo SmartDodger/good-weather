@@ -1,0 +1,49 @@
+@import "../../assets/scss/utils/colors";
+
+.form-search {
+  width: 100%;
+  border-bottom: 1px solid $light-blue / 1.2;
+  position: relative;
+
+  input[type="text"] {
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    color: $light-blue / 1.2;
+    text-align: center;
+    width: 100%;
+    padding: 0 45px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button[type="submit"] {
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+    color: $light-blue / 1.2;
+    width: 42px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #C4C4C4;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #C4C4C4;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #C4C4C4;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #C4C4C4;
+}
