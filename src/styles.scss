@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+//Vendor
+@import "~bootstrap/scss/bootstrap.scss";
+
+//utils
+@import 'assets/scss/utils/colors';
+
+//base
+@import 'assets/scss/base/reset';
+@import 'assets/scss/base/typography';
+@import 'assets/scss/base/base';
