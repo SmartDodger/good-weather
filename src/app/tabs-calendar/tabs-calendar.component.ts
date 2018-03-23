@@ -15,8 +15,6 @@ export class TabsCalendarComponent implements OnInit {
     'Wednesday',
     'Thursday',
     'Friday',
-    'Saturday',
-    'Sunday'
   ];
   ngOnInit() {
   }

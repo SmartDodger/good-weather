@@ -1,0 +1,6 @@
+<div class="container">
+  <h2>{{city}}, {{cityWeather?.sys.country}}</h2>
+  <p *ngFor="let weather of cityWeather?.weather">
+    {{weather.description}}
+  </p>
+</div>
