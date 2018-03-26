@@ -5,3 +5,89 @@ h2 {
   font-size: 28px;
   color: $rich-gold;
 }
+
+.wind-direction-wrap {
+  line-height: 50px;
+  padding-top: 30px;
+}
+
+.wind-direction {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 56px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid $texas-rose;
+  color: $texas-rose;
+  position: relative;
+
+  .fa-circle {
+    display: none;
+  }
+
+  @each $direction, $deg in
+      (n, 0),
+      (we, 45),
+      (e, 90),
+      (se, 135),
+      (s, 180),
+      (sw, 225),
+      (w, 270),
+      (nw, 315) {
+    &_#{$direction} {
+      transform: rotate(#{$deg}deg);
+    }
+  }
+
+  &_calm {
+    .fa-arrow-up {
+      display: none;
+    }
+
+    .fa-circle {
+      display: inline-block;
+    }
+  }
+
+  &__letters {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    left: 15px;
+    top: 0;
+    line-height: 10px;
+
+    li {
+      width: 10px;
+      height: 10px;
+      text-align: center;
+      position: absolute;
+      color: $texas-rose;
+      font-weight: 700;
+
+      &:first-child {
+        left: calc(50% - 5px);
+        top: -18px;
+      }
+
+      &:nth-child(2) {
+        top: calc(50% - 5px);
+        left: -20px;
+      }
+
+      &:nth-child(3) {
+        top: calc(50% - 5px);
+        right: -18px;
+      }
+
+      &:last-child {
+        left: calc(50% - 5px);
+        bottom: -18px;
+      }
+    }
+  }
+}

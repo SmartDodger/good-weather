@@ -7,7 +7,7 @@ import {WeatherService} from '../services/weather.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  public searchCity = '';
+  public searchCity = 'Kiev';
   public posts: any;
 
   constructor(private weatherService: WeatherService) {}
@@ -17,10 +17,17 @@ export class SearchComponent implements OnInit {
       .subscribe((res) => {
         this.posts = res;
         this.weatherService.arrayWeather$.next(res);
+        this.searchCity = '';
       });
   }
 
   ngOnInit() {
+    this.weatherService.getWeather(this.searchCity)
+      .subscribe((res) => {
+        this.posts = res;
+        this.weatherService.arrayWeather$.next(res);
+        this.searchCity = '';
+      });
   }
 
 }

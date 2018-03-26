@@ -14,7 +14,7 @@ export class WeatherService {
 
   getWeather(city) {
     this.searchCity$.next(city);
-    return this.http.get(`${this.ROOT_URL}${city}&${this.apikey}`);
+    return this.http.get(`${this.ROOT_URL}${city}&units=metric&${this.apikey}`);
   }
 }
 

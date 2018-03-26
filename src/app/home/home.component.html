@@ -3,4 +3,42 @@
   <p *ngFor="let weather of cityWeather?.weather">
     {{weather.description}}
   </p>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <ul *ngIf="cityWeather">
+        <li class="row">
+          <span class="col">Temperature</span>
+          <span class="col">{{cityWeather.main.temp | number: '1.0-0'}}&#8451;</span>
+        </li>
+        <li class="row">
+          <span class="col">Pressure</span>
+          <span class="col">{{cityWeather.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</span>
+        </li>
+        <li class="row">
+          <span class="col">Humidity</span>
+          <span class="col">{{cityWeather.main.humidity | number: '2.0-0'}}%</span>
+        </li>
+        <li class="row">
+          <span class="col">Wind speed</span>
+          <span class="col">{{cityWeather.wind.speed}} m/s</span>
+        </li>
+        <li class="row wind-direction-wrap">
+          <span class="col">Wind direction</span>
+          <span class="col">
+            <span class="wind-direction {{windDirection}}">
+              <i class="fas fa-arrow-up fa-2x"></i>
+              <i class="fas fa-circle fa-2x"></i>
+            </span>
+            <ul class="wind-direction__letters text-uppercase">
+              <li>n</li>
+              <li>w</li>
+              <li>e</li>
+              <li>s</li>
+            </ul>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

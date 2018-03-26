@@ -2,11 +2,13 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <form class="form-search">
-        <input type="text" placeholder="Search" [(ngModel)]="searchCity" [ngModelOptions]="{standalone: true}">
+        <input type="text" placeholder="In which city to see the weather" [(ngModel)]="searchCity"
+               [ngModelOptions]="{standalone: true}">
         <button type="submit" value="" (click)="getWeather()">
           <i class="fas fa-search fa-2x"></i>
         </button>
       </form>
+      <p>{{posts | json }}</p>
     </div>
   </div>
 </div>
