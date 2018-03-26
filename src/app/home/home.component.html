@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>{{city}}, {{cityWeather?.sys.country}}</h2>
+  <!--<h2>Weather in {{city}}, {{cityWeather?.sys.country}}</h2>-->
   <p *ngFor="let weather of cityWeather?.weather">
     {{weather.description}}
   </p>
   <div class="row">
     <div class="col"></div>
-    <div class="col">
+    <!--<div class="col">
       <ul *ngIf="cityWeather">
         <li class="row">
           <span class="col">Temperature</span>
@@ -39,6 +39,6 @@
           </span>
         </li>
       </ul>
-    </div>
+    </div>-->
   </div>
 </div>
