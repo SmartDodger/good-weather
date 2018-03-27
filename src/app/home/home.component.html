@@ -1,44 +1,72 @@
 <div class="container">
-  <!--<h2>Weather in {{city}}, {{cityWeather?.sys.country}}</h2>-->
-  <p *ngFor="let weather of cityWeather?.weather">
-    {{weather.description}}
-  </p>
-  <div class="row">
-    <div class="col"></div>
-    <!--<div class="col">
-      <ul *ngIf="cityWeather">
-        <li class="row">
-          <span class="col">Temperature</span>
-          <span class="col">{{cityWeather.main.temp | number: '1.0-0'}}&#8451;</span>
-        </li>
-        <li class="row">
-          <span class="col">Pressure</span>
-          <span class="col">{{cityWeather.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</span>
-        </li>
-        <li class="row">
-          <span class="col">Humidity</span>
-          <span class="col">{{cityWeather.main.humidity | number: '2.0-0'}}%</span>
-        </li>
-        <li class="row">
-          <span class="col">Wind speed</span>
-          <span class="col">{{cityWeather.wind.speed}} m/s</span>
-        </li>
-        <li class="row wind-direction-wrap">
-          <span class="col">Wind direction</span>
-          <span class="col">
-            <span class="wind-direction {{windDirection}}">
-              <i class="fas fa-arrow-up fa-2x"></i>
-              <i class="fas fa-circle fa-2x"></i>
-            </span>
-            <ul class="wind-direction__letters text-uppercase">
-              <li>n</li>
-              <li>w</li>
-              <li>e</li>
-              <li>s</li>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="weather-now">
+        <div class="row" *ngIf="cityWeather">
+          <div class="col-md-8">
+            <h2>Weather in {{cityWeather.city.name}}, {{cityWeather.city.country}}</h2>
+          </div>
+          <div class="col">
+            <ul class="main-weather-list">
+              <li class="temp float-left">
+                {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
+                {{cityWeather.list[0].main.temp | number: '1.0-0'}}
+                &#8451;
+              </li>
+              <li class="float-right text-center">
+                <img src="http://openweathermap.org/img/w/{{this.cityWeather.list[0].weather[0].icon}}.png" alt="">
+              </li>
+              <li class="float-right text-center text-capitalize">
+                {{cityWeather.list[0].weather[0].description}}
+              </li>
             </ul>
-          </span>
-        </li>
-      </ul>
-    </div>-->
+          </div>
+        </div>
+      </div>
+
+      <app-tabs-calendar></app-tabs-calendar>
+
+
+
+      <div class="row">
+        <div class="col"></div>
+        <!--<div class="col">
+          <ul *ngIf="cityWeather">
+            <li class="row">
+              <span class="col">Temperature</span>
+              <span class="col">{{cityWeather.main.temp | number: '1.0-0'}}&#8451;</span>
+            </li>
+            <li class="row">
+              <span class="col">Pressure</span>
+              <span class="col">{{cityWeather.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</span>
+            </li>
+            <li class="row">
+              <span class="col">Humidity</span>
+              <span class="col">{{cityWeather.main.humidity | number: '2.0-0'}}%</span>
+            </li>
+            <li class="row">
+              <span class="col">Wind speed</span>
+              <span class="col">{{cityWeather.wind.speed}} m/s</span>
+            </li>
+            <li class="row wind-direction-wrap">
+              <span class="col">Wind direction</span>
+              <span class="col">
+                <span class="wind-direction {{windDirection}}">
+                  <i class="fas fa-arrow-up fa-2x"></i>
+                  <i class="fas fa-circle fa-2x"></i>
+                </span>
+                <ul class="wind-direction__letters text-uppercase">
+                  <li>n</li>
+                  <li>w</li>
+                  <li>e</li>
+                  <li>s</li>
+                </ul>
+              </span>
+            </li>
+          </ul>
+        </div>-->
+      </div>
+    </div>
   </div>
 </div>
+<p>{{cityWeather | json}}</p>

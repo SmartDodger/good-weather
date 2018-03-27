@@ -1,22 +1,33 @@
 @import "../../assets/scss/utils/colors";
 
+.search-wrap {
+  background: #6B80BF;
+  height: 60px;
+}
+
 .form-search {
-  margin: 40px 0;
   width: 100%;
-  border-bottom: 1px solid $blue;
   position: relative;
+  margin: 10px 0;
 
   input[type="text"] {
     height: 40px;
     font-size: 20px;
-    border: none;
+    border: 0;
     color: $blue;
-    //text-align: center;
+    background: $white;
     width: 100%;
-    padding: 0 45px 0 0;
+    padding: 0 45px 0 10px;
+    transition: .1s;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
 
     &:focus {
       outline: none;
+
+      + button[type="submit"] {
+        opacity: 1;
+      }
     }
   }
 
@@ -24,27 +35,31 @@
     border: 0;
     box-shadow: none;
     cursor: pointer;
-    color: $blue;
+    color: #6B80BF;
     width: 42px;
     position: absolute;
     right: 0;
     top: 5px;
+    opacity: .5;
+    transition: .2s;
+    background: transparent;
 
     &:focus {
       outline: none;
     }
   }
+
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #C4C4C4;
+  color: rgba(60, 78, 120, 0.45);
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #C4C4C4;
+  color: rgba(60, 78, 120, 0.45);
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #C4C4C4;
+  color: rgba(60, 78, 120, 0.45);
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: #C4C4C4;
+  color: rgba(60, 78, 120, 0.45);
 }

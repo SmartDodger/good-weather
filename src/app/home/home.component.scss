@@ -1,9 +1,32 @@
 @import "../../assets/scss/utils/colors";
 
 h2 {
-  padding: 0 0 15px;
-  font-size: 28px;
-  color: $rich-gold;
+  padding: 17px 0 15px;
+  font-size: 30px;
+  color: $white;
+}
+
+.weather-now {
+  margin: 30px 0;
+  padding: 20px;
+  height: 120px;
+  background: #6B80BF;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 1px #d3deff;
+}
+
+.main-weather-list {
+  color: $white;
+  text-align: right;
+
+  li {
+    width: 50%;
+
+    &.temp {
+      font-size: 32px;
+      padding: 19px 0;
+    }
+  }
 }
 
 .wind-direction-wrap {

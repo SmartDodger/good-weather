@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../services/weather.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,8 @@ export class HomeComponent implements OnInit {
   public pressurehPaTOmmHg = 0.75006375541921;
   public windDirection: string;
   public windDirectionDeg: number;
+  public hours = new Date().getHours();
+  public isDayTime = this.hours > 6 && this.hours < 20;
 
   constructor(private weatherService: WeatherService) {
     this.weatherService.searchCity$
@@ -20,7 +23,7 @@ export class HomeComponent implements OnInit {
     this.weatherService.arrayWeather$
       .subscribe((res) => {
         this.cityWeather = res;
-        this.windDirectionDeg = this.cityWeather.wind.deg;
+        this.windDirectionDeg = this.cityWeather.list[5].deg;
         if (this.windDirectionDeg >= 338 || this.windDirectionDeg <= 22 ) {
           this.windDirection = 'wind-direction_n';
         } else if (this.windDirectionDeg >= 23 && this.windDirectionDeg <= 67 ) {
@@ -44,7 +47,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 }

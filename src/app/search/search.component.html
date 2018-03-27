@@ -1,14 +1,15 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form class="form-search">
-        <input type="text" placeholder="In which city to see the weather" [(ngModel)]="searchCity"
-               [ngModelOptions]="{standalone: true}">
-        <button type="submit" value="" (click)="getWeather()">
-          <i class="fas fa-search fa-2x"></i>
-        </button>
-      </form>
-      <p>{{posts | json }}</p>
+<div class="search-wrap">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <form class="form-search">
+          <input type="text" placeholder="In which city to see the weather" minlength="2" required [(ngModel)]="searchCity"
+                 [ngModelOptions]="{standalone: true}">
+          <button type="submit" value="" (click)="getWeather()">
+            <i class="fas fa-search fa-2x"></i>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
