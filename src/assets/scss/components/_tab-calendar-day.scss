@@ -2,23 +2,33 @@
   .nav-tabs {
     display: flex;
     justify-content: space-between;
-    border-color: $light-blue / 1.2;
+    border: 0;
 
     .nav-item {
+      -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      text-align: center;
+      background: $white;
+      position: relative;
 
+      &.active {
+        border: 0;
+        background: transparent;
+      }
     }
 
     .nav-link {
-      color: $texas-rose;
-
-      &:hover,
-      &:focus {
-        border-color: $blue;
-      }
+      color: $tory-blue;
+      border: 0;
 
       &.active {
-        border-color: $blue;
-        border-bottom-color: white;
+        border-bottom: 0;
+        background: transparent;
+        color: $white;
 
         &:hover,
         &:focus {

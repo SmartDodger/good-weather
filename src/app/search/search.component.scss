@@ -1,7 +1,7 @@
 @import "../../assets/scss/utils/colors";
 
 .search-wrap {
-  background: #6B80BF;
+  background: $wild-blue-yonder;
   height: 60px;
 }
 
@@ -35,7 +35,7 @@
     border: 0;
     box-shadow: none;
     cursor: pointer;
-    color: #6B80BF;
+    color: $wild-blue-yonder;
     width: 42px;
     position: absolute;
     right: 0;

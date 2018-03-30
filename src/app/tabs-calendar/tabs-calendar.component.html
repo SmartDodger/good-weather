@@ -1,5 +1,36 @@
-<div class="container">
-  <tabset class="tab-calendar-day">
-    <tab *ngFor="let item of daysWeeks" [heading]="item">{{item}}</tab>
+<div class="tab-container">
+  <tabset class="tab-calendar-day text-capitalize">
+    <tab *ngFor="let item of weatherDay" [heading]="item.day">
+      <div class="container">
+        <ul  class="text-center row">
+          <li *ngFor="let info of item.numberDay" class="d-inline-block col tab-container__block">
+            <span class="time d-inline-block">{{info.dt_txt | date: 'HH:mm a'}}</span>
+            <hr class="line">
+            <ul class="time-weather-list">
+              <li class="time-weather-list__temp" tooltip="temperature">{{info.main.temp | number: '1.0-0'}}&#8451;</li>
+              <li tooltip="{{info.weather[0].description}}"><img src="http://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt=""></li>
+              <li tooltip="pressure">{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</li>
+              <li tooltip="humidity">{{info.main.humidity | number: '2.0-0'}}%</li>
+              <li tooltip="wind speed">{{info.wind.speed}} m/s</li>
+              <li class="row wind-direction-wrap">
+                <span class="col">
+                  <span class="wind-direction {{info.main.winddeg}}">
+                   <i class="fas fa-arrow-up"></i>
+                   <i class="fas fa-circle"></i>
+                  </span>
+                  <ul class="wind-direction__letters text-uppercase">
+                   <li>n</li>
+                   <li>w</li>
+                   <li>e</li>
+                   <li>s</li>
+                  </ul>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </tab>
   </tabset>
 </div>
+<!--<p>{{weatherDay | json}}</p>-->

@@ -22,12 +22,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.weatherService.getWeather(this.searchCity)
-      .subscribe((res) => {
-        this.posts = res;
-        this.weatherService.arrayWeather$.next(res);
-        this.searchCity = '';
-      });
+    this.getWeather();
   }
 
 }
