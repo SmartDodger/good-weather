@@ -1,10 +1,18 @@
 <div class="tab-container">
   <tabset class="tab-calendar-day text-capitalize">
-    <tab *ngFor="let item of weatherDay" [heading]="item.day">
+    <tab *ngFor="let item of weatherDay"
+         [heading]="item.numberDay[0].dt_txt | date: 'EEE, MMM d, y'">
       <div class="container">
         <ul  class="text-center row">
           <li *ngFor="let info of item.numberDay" class="d-inline-block col tab-container__block">
-            <span class="time d-inline-block">{{info.dt_txt | date: 'HH:mm a'}}</span>
+            <span class="time d-inline-block">
+              <span class="d-block">
+                {{info.dt_txt | date: 'HH:mm a'}}
+              </span>
+              <!--<span class="d-block">
+                {{info.dt_txt | date: 'MMM d, y'}}
+              </span>-->
+            </span>
             <hr class="line">
             <ul class="time-weather-list">
               <li class="time-weather-list__temp" tooltip="temperature">{{info.main.temp | number: '1.0-0'}}&#8451;</li>
@@ -12,7 +20,7 @@
               <li tooltip="pressure">{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</li>
               <li tooltip="humidity">{{info.main.humidity | number: '2.0-0'}}%</li>
               <li tooltip="wind speed">{{info.wind.speed}} m/s</li>
-              <li class="row wind-direction-wrap">
+              <li tooltip="wind direction" class="row wind-direction-wrap">
                 <span class="col">
                   <span class="wind-direction {{info.main.winddeg}}">
                    <i class="fas fa-arrow-up"></i>
@@ -33,4 +41,3 @@
     </tab>
   </tabset>
 </div>
-<!--<p>{{weatherDay | json}}</p>-->

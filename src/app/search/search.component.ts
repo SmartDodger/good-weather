@@ -8,14 +8,12 @@ import {WeatherService} from '../services/weather.service';
 })
 export class SearchComponent implements OnInit {
   public searchCity = 'Kiev';
-  public posts: any;
 
   constructor(private weatherService: WeatherService) {}
 
   getWeather() {
     this.weatherService.getWeather(this.searchCity)
       .subscribe((res) => {
-        this.posts = res;
         this.weatherService.arrayWeather$.next(res);
         this.searchCity = '';
       });

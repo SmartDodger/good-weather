@@ -12,12 +12,7 @@ const routes: Routes = [
   {
     path: 'maps',
     component: MapsComponent
-  },
-  {
-    path: 'fiveDays',
-    component: TabsCalendarComponent
   }
-
 ];
 
 @NgModule({

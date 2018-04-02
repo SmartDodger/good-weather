@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {WeatherService} from '../services/weather.service';
 
 @Component({
   selector: 'app-maps',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
+
   }
 
 }
+
+
