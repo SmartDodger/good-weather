@@ -2,18 +2,21 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col logo">
             <a routerLink="">
               Good Weather
             </a>
           </div>
-          <div class="col">
-            <app-main-menu></app-main-menu>
+          <div class="col text-right">
+            <div class="radio-group">
+              <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="getUnits()" id="cesium">
+              <label for="cesium" >&#8451;</label>
+              <input type="radio" name="radio" value="imperial" [(ngModel)]="units" (change)="getUnits()" id="fahrenheit">
+              <label for="fahrenheit" >&#8457;</label>
+              <span class="select-radio"></span>
+            </div>
           </div>
-          <!--<div class="col-md-4 text-right">
-            <app-login></app-login>
-          </div>-->
         </div>
       </div>
     </div>

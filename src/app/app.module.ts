@@ -9,12 +9,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TabsModule } from 'ngx-bootstrap';
-import { MainMenuComponent } from './header/main-menu/main-menu.component';
-import { LoginComponent } from './header/login/login.component';
 import { SearchComponent } from './search/search.component';
 import { TabsCalendarComponent } from './tabs-calendar/tabs-calendar.component';
 import { HomeComponent } from './home/home.component';
-import { MapsComponent } from './maps/maps.component';
 import {WeatherService} from './services/weather.service';
 
 
@@ -22,12 +19,9 @@ import {WeatherService} from './services/weather.service';
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainMenuComponent,
-    LoginComponent,
     SearchComponent,
     TabsCalendarComponent,
-    HomeComponent,
-    MapsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

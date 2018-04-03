@@ -11,7 +11,7 @@
               <li class="temp float-left">
                 {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
                 {{cityWeather.list[0].main.temp | number: '1.0-0'}}
-                &#8451;
+                {{units == 'metric' ? '&#8451;' : '&#8457;'}}
               </li>
               <li class="float-right text-center">
                 <img src="http://openweathermap.org/img/w/{{this.cityWeather.list[0].weather[0].icon}}.png" alt="">

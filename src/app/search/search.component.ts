@@ -1,4 +1,4 @@
-import { Component, OnInit,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {WeatherService} from '../services/weather.service';
 
 @Component({
@@ -8,18 +8,29 @@ import {WeatherService} from '../services/weather.service';
 })
 export class SearchComponent implements OnInit {
   public searchCity = 'Kiev';
+  public units: any;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) {
+
+  }
 
   getWeather() {
-    this.weatherService.getWeather(this.searchCity)
+    if (this.searchCity === '') {
+      this.searchCity = 'Kiev';
+    }
+    this.weatherService.getWeather(this.searchCity, this.units)
       .subscribe((res) => {
         this.weatherService.arrayWeather$.next(res);
-        this.searchCity = '';
       });
   }
 
+  delete() {
+    this.searchCity = '';
+  }
+
   ngOnInit() {
+    this.weatherService.units$
+      .subscribe((units) => this.units = units);
     this.getWeather();
   }
 

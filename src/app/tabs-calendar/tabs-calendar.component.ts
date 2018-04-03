@@ -17,10 +17,13 @@ export class TabsCalendarComponent implements OnInit {
   public windDirection: string;
   public windDirectionDeg: number;
   public cityWeather: any;
+  public units = 'metric';
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
+    this.weatherService.units$
+      .subscribe((units) => this.units = units);
     this.weatherService.arrayWeather$
       .subscribe((res) => {
         this.weatherDay = [];

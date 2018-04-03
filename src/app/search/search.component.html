@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-10">
         <form class="form-search">
-          <input type="text" placeholder="In which city to see the weather" minlength="2" [(ngModel)]="searchCity"
+          <input type="text" placeholder="In which city to see the weather" (click)="delete()" minlength="2" [(ngModel)]="searchCity"
                  [ngModelOptions]="{standalone: true}">
           <button type="submit" value="" (click)="getWeather()">
             <i class="fas fa-search fa-2x"></i>
