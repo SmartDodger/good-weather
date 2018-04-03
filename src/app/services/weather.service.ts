@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class WeatherService {
-  readonly ROOT_URL = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+  readonly ROOT_URL = 'https://api.openweathermap.org/data/2.5/forecast?q=';
   readonly apikey = 'APPID=540a4f8c1e5c2e1b26a3720d3994ad63';
 
   public searchCity$: Subject<any> = new Subject();
