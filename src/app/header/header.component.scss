@@ -43,7 +43,7 @@
 
     &#fahrenheit:checked {
       ~ .select-radio {
-        left: 52%;
+        left: calc(50% + 1px);
       }
     }
   }
