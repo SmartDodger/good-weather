@@ -5,8 +5,11 @@
   border-radius: 6px;
   min-height: 600px;
   color: $white;
+  margin-bottom: 15px;
 
   &__block {
+    padding-bottom: 30px;
+    
     &::before {
       content: '';
       display: block;
@@ -182,6 +185,20 @@
         &:focus {
           border-bottom-color: white;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .tab-container {
+    background: $wild-blue-yonder;
+  }
+
+  /deep/ .tab-calendar-day {
+    .nav-tabs {
+      .nav-link {
+        padding: 6px;
       }
     }
   }
