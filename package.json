@@ -26,8 +26,6 @@
     "ngx-bootstrap": "^2.0.3",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
-  },
-  "devDependencies": {
     "@angular/cli": "~1.7.3",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
@@ -46,5 +44,12 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
+  },
+  "scripts": {
+    "ng": "ng",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build --target=production"
   }
 }
