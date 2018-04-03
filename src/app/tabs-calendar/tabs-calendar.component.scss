@@ -193,6 +193,7 @@
 @media (max-width: 576px) {
   .tab-container {
     background: $wild-blue-yonder;
+    min-height: 1px;
   }
 
   /deep/ .tab-calendar-day {
