@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-10">
+    <div class="col-xl-10">
       <div class="weather-now">
         <div class="row" *ngIf="cityWeather">
-          <div class="col-md-8">
+          <div class="col-lg-8">
             <h2>Weather in {{cityWeather.city.name}}, {{cityWeather.city.country}}</h2>
           </div>
           <div class="col">
             <ul class="main-weather-list">
-              <li class="temp float-left">
+              <li class="temp">
                 {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
                 {{(units == 'metric' ? cityWeather.list[0].main.temp : ((cityWeather.list[0].main.temp) * (9/5) + 32)) | number: '1.0-0'}}
                 {{units == 'metric' ? '&#8451;' : '&#8457;'}}
               </li>
-              <li class="float-right text-center">
+              <li class="text-center">
                 <img src="http://openweathermap.org/img/w/{{this.cityWeather.list[0].weather[0].icon}}.png" alt="">
               </li>
-              <li class="float-right text-center text-capitalize">
+              <li class="text-center text-capitalize">
                 {{cityWeather.list[0].weather[0].description}}
               </li>
             </ul>
