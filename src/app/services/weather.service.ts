@@ -13,9 +13,8 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(city, units) {
+  getWeather(city) {
     this.searchCity$.next(city);
-    this.units$.next(units);
-    return this.http.get(`${this.ROOT_URL}${city}&units=${units}&${this.apikey}`);
+    return this.http.get(`${this.ROOT_URL}${city}&units=metric&${this.apikey}`);
   }
 }

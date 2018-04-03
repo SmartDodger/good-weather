@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
     if (this.searchCity === '') {
       this.searchCity = 'Kiev';
     }
-    this.weatherService.getWeather(this.searchCity, this.units)
+    this.weatherService.getWeather(this.searchCity)
       .subscribe((res) => {
         this.weatherService.arrayWeather$.next(res);
       });

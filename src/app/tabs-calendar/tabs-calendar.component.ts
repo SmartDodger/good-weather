@@ -14,6 +14,7 @@ export class TabsCalendarComponent implements OnInit {
   public dayName = [];
   public weatherDay: any;
   public pressurehPaTOmmHg = 0.75006375541921;
+  public msToMph = 2.23694;
   public windDirection: string;
   public windDirectionDeg: number;
   public cityWeather: any;

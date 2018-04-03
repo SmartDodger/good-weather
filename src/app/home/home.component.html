@@ -10,7 +10,7 @@
             <ul class="main-weather-list">
               <li class="temp float-left">
                 {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
-                {{cityWeather.list[0].main.temp | number: '1.0-0'}}
+                {{(units == 'metric' ? cityWeather.list[0].main.temp : ((cityWeather.list[0].main.temp) * (9/5) + 32)) | number: '1.0-0'}}
                 {{units == 'metric' ? '&#8451;' : '&#8457;'}}
               </li>
               <li class="float-right text-center">

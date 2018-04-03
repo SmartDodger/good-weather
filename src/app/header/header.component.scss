@@ -58,7 +58,7 @@
     height: calc(100% - 2px);
     background: $texas-rose;
     z-index: 10;
-    transition: .1s ease-in-out;
+    transition: .2s ease-in-out;
   }
 
   label {
@@ -72,6 +72,6 @@
     cursor: pointer;
     position: relative;
     z-index: 20;
-    transition: .2s ease-in-out;
+    transition: .2s;
   }
 }

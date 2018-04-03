@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     this.weatherService.units$.subscribe((units) => {
       this.units = units;
     });
-    this.weatherService.getWeather(this.city, this.units)
+    this.weatherService.getWeather(this.city)
       .subscribe((res) => {
         this.weatherService.arrayWeather$.next(res);
       });

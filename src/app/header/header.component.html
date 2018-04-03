@@ -10,9 +10,9 @@
           </div>
           <div class="col text-right">
             <div class="radio-group">
-              <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="getUnits()" id="cesium">
+              <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="valueUnits()" id="cesium">
               <label for="cesium" >&#8451;</label>
-              <input type="radio" name="radio" value="imperial" [(ngModel)]="units" (change)="getUnits()" id="fahrenheit">
+              <input type="radio" name="radio" value="imperial" [(ngModel)]="units" (change)="valueUnits()" id="fahrenheit">
               <label for="fahrenheit" >&#8457;</label>
               <span class="select-radio"></span>
             </div>
