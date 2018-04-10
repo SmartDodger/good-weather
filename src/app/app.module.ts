@@ -13,6 +13,7 @@ import { SearchComponent } from './search/search.component';
 import { TabsCalendarComponent } from './tabs-calendar/tabs-calendar.component';
 import { HomeComponent } from './home/home.component';
 import {WeatherService} from './services/weather.service';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {WeatherService} from './services/weather.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    [GooglePlaceModule, BrowserModule, FormsModule]
   ],
   providers: [
     WeatherService
