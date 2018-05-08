@@ -11,7 +11,7 @@ export class WeatherService {
   public searchCountry$: Subject<any> = new Subject();
   public units$: Subject<any> = new Subject();
   public arrayWeather$: Subject<any> = new Subject();
-  public completeGet$: Subject<any> = new Subject();
+  public errorHttp$: Subject<any> = new Subject();
 
   constructor(private http: HttpClient) { }
 

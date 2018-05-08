@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from '../services/weather.service';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-tabs-calendar',
@@ -19,6 +19,7 @@ export class TabsCalendarComponent implements OnInit {
   public windDirectionDeg: number;
   public cityWeather: any;
   public units = 'metric';
+  public errorHttp = false;
 
   constructor(private weatherService: WeatherService) {}
 
@@ -66,6 +67,11 @@ export class TabsCalendarComponent implements OnInit {
           this.weatherDay.push({numberDay: this.fiveDaysArray, day: this.dayName[i]});
           this.fiveDaysArray = [];
         }
+      });
+
+    this.weatherService.errorHttp$
+      .subscribe((errorHttp) => {
+        this.errorHttp = errorHttp;
       });
   }
 }

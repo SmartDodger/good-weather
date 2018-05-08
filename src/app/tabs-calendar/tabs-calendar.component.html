@@ -1,46 +1,52 @@
-<div class="tab-container">
-  <tabset class="tab-calendar-day text-capitalize">
-    <tab *ngFor="let item of weatherDay"
-         [heading]="item.numberDay[0].dt_txt | date: 'EEE, MMM d, y'">
-      <div class="container">
-        <ul  class="text-center row">
-          <li *ngFor="let info of item.numberDay" class="d-inline-block col tab-container__block">
-            <span class="time d-inline-block">
-              <span class="d-block">
-                {{info.dt_txt | date: 'HH:mm a'}}
-              </span>
-              <!--<span class="d-block">
-                {{info.dt_txt | date: 'MMM d, y'}}
-              </span>-->
-            </span>
-            <hr class="line">
-            <ul class="time-weather-list">
-              <li class="time-weather-list__temp" tooltip="temperature">
-                {{(units == 'metric' ? info.main.temp : ((info.main.temp) * (9/5) + 32)) | number: '1.0-0'}}
-                {{units == 'metric' ? '&#8451;' : '&#8457;'}}
-              </li>
-              <li tooltip="{{info.weather[0].description}}"><img src="http://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt=""></li>
-              <li tooltip="pressure">{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</li>
-              <li tooltip="humidity">{{info.main.humidity | number: '2.0-0'}}%</li>
-              <li tooltip="wind speed" class="text-lowercase">{{(units == 'metric' ? info.wind.speed : (info.wind.speed * msToMph)) | number: '1.0-1'}} {{units == 'metric' ? 'm/s' : 'mph'}}</li>
-              <li tooltip="wind direction" class="row wind-direction-wrap">
-                <span class="col">
-                  <span class="wind-direction {{info.main.winddeg}}">
-                   <i class="fas fa-arrow-up"></i>
-                   <i class="fas fa-circle"></i>
+<div class="container" *ngIf="!errorHttp">
+  <div class="row justify-content-center">
+    <div class="col-xl-10">
+      <div class="tab-container">
+        <tabset class="tab-calendar-day text-capitalize">
+          <tab *ngFor="let item of weatherDay"
+               [heading]="item.numberDay[0].dt_txt | date: 'EEE, MMM d, y'">
+            <div class="container">
+              <ul  class="text-center row">
+                <li *ngFor="let info of item.numberDay" class="d-inline-block col tab-container__block">
+                  <span class="time d-inline-block">
+                    <span class="d-block">
+                      {{info.dt_txt | date: 'HH:mm a'}}
+                    </span>
+                    <!--<span class="d-block">
+                      {{info.dt_txt | date: 'MMM d, y'}}
+                    </span>-->
                   </span>
-                  <ul class="wind-direction__letters text-uppercase">
-                   <li>n</li>
-                   <li>w</li>
-                   <li>e</li>
-                   <li>s</li>
+                  <hr class="line">
+                  <ul class="time-weather-list">
+                    <li class="time-weather-list__temp" tooltip="temperature">
+                      {{(units == 'metric' ? info.main.temp : ((info.main.temp) * (9/5) + 32)) | number: '1.0-0'}}
+                      {{units == 'metric' ? '&#8451;' : '&#8457;'}}
+                    </li>
+                    <li tooltip="{{info.weather[0].description}}"><img src="http://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt=""></li>
+                    <li tooltip="pressure">{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</li>
+                    <li tooltip="humidity">{{info.main.humidity | number: '2.0-0'}}%</li>
+                    <li tooltip="wind speed" class="text-lowercase">{{(units == 'metric' ? info.wind.speed : (info.wind.speed * msToMph)) | number: '1.0-1'}} {{units == 'metric' ? 'm/s' : 'mph'}}</li>
+                    <li tooltip="wind direction" class="row wind-direction-wrap">
+                      <span class="col">
+                        <span class="wind-direction {{info.main.winddeg}}">
+                           <i class="fas fa-arrow-up"></i>
+                           <i class="fas fa-circle"></i>
+                        </span>
+                        <ul class="wind-direction__letters text-uppercase">
+                           <li>n</li>
+                           <li>w</li>
+                           <li>e</li>
+                           <li>s</li>
+                        </ul>
+                      </span>
+                    </li>
                   </ul>
-                </span>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </tab>
-  </tabset>
-</div>
+                </li>
+              </ul>
+            </div>
+          </tab>
+        </tabset>
+      </div> <!-- tab-container -->
+    </div> <!-- col -->
+  </div> <!-- row -->
+</div> <!-- container -->

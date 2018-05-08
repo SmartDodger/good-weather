@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from '../services/weather.service';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public country = 'UA';
   public cityWeather: any;
   public units = 'metric';
-  public completeGet = false;
+  public errorHttp = false;
 
   constructor(private weatherService: WeatherService) {
     this.weatherService.units$.subscribe((units) => {
@@ -32,16 +32,14 @@ export class HomeComponent implements OnInit {
       .subscribe((country) => this.country = country);
 
     this.weatherService.arrayWeather$
-      .subscribe((res) => {
-        this.cityWeather = res;
+      .subscribe((cityWeather) => {
+        this.cityWeather = cityWeather;
       });
 
-    this.weatherService.completeGet$
-      .subscribe((res) => {
-        this.completeGet = res;
+    this.weatherService.errorHttp$
+      .subscribe((errorHttp) => {
+        this.errorHttp = errorHttp;
       });
   }
-
-
 }
 
