@@ -68,7 +68,4 @@ export class TabsCalendarComponent implements OnInit {
         }
       });
   }
-
 }
-/*
-this.fiveDaysArray.push(this.weatherWeek.list[y]['winddeg'] = this.windDirection);*/

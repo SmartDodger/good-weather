@@ -12,37 +12,35 @@ import {WeatherService} from '../services/weather.service';
 
 export class SearchComponent implements OnInit {
   public searchCity = 'Kiev';
-  public units: any;
+  public searchCountry = 'UA';
+  public completeGet = false;
   public options = {
     types: ['(cities)']
-  }
-  public handleAddressChange() {
-    console.log(this.searchCity);
+  };
 
+  handleAddressChange(address) {
+    this.searchCity = address.name;
+    this.searchCountry = address.address_components[2].short_name;
+    this.getWeather();
   }
-  constructor(private weatherService: WeatherService) {
-
-  }
-
-  getWeather() {
-    console.log(this.searchCity);
-    if (this.searchCity === '') {
-      this.searchCity = 'Kiev';
-    }
-    this.weatherService.getWeather(this.searchCity)
-      .subscribe((res) => {
-        this.weatherService.arrayWeather$.next(res);
-      });
-  }
-
-  delete() {
-    this.searchCity = '';
-  }
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.weatherService.units$
-      .subscribe((units) => this.units = units);
     this.getWeather();
   }
 
+  getWeather() {
+    if (this.searchCity === '') {
+      this.searchCity = 'Kiev';
+    }
+
+    this.weatherService.getWeather(this.searchCity, this.searchCountry)
+      .subscribe(
+        (res) => this.weatherService.arrayWeather$.next(res),
+        err => console.error(err),
+        () => this.completeGet = true
+      );
+    console.log(this.completeGet);
+    this.weatherService.completeGet$.next(this.completeGet);
+  }
 }

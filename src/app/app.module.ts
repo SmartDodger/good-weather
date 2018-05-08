@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
@@ -12,7 +11,7 @@ import { TabsModule } from 'ngx-bootstrap';
 import { SearchComponent } from './search/search.component';
 import { TabsCalendarComponent } from './tabs-calendar/tabs-calendar.component';
 import { HomeComponent } from './home/home.component';
-import {WeatherService} from './services/weather.service';
+import { WeatherService } from './services/weather.service';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
@@ -28,7 +27,6 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
     BrowserModule,
     TabsModule.forRoot(),
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
     TooltipModule.forRoot(),
     [GooglePlaceModule, BrowserModule, FormsModule]

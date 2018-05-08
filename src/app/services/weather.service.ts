@@ -8,13 +8,18 @@ export class WeatherService {
   readonly apikey = 'APPID=540a4f8c1e5c2e1b26a3720d3994ad63';
 
   public searchCity$: Subject<any> = new Subject();
+  public searchCountry$: Subject<any> = new Subject();
   public units$: Subject<any> = new Subject();
   public arrayWeather$: Subject<any> = new Subject();
+  public completeGet$: Subject<any> = new Subject();
 
   constructor(private http: HttpClient) { }
 
-  getWeather(city) {
+  getWeather(city, country) {
     this.searchCity$.next(city);
-    return this.http.get(`${this.ROOT_URL}${city}&units=metric&${this.apikey}`);
+    this.searchCountry$.next(country);
+    return this.http.get(`${this.ROOT_URL}${city},${country}&units=metric&${this.apikey}`);
   }
+
+
 }

@@ -17,8 +17,5 @@ export class HeaderComponent implements OnInit {
     this.weatherService.units$.next(this.units);
   }
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 }
