@@ -1,12 +1,20 @@
-<div class="container" *ngIf="!errorHttp" [@someCoolAnimation]>
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-xl-10" >
+    <div class="col-xl-10">
       <div class="weather-now">
         <div class="row" *ngIf="cityWeather">
-          <div class="col-lg-8">
-            <h2>Weather in {{cityWeather.city.name}}, {{cityWeather.city.country}}</h2>
+          <div [ngClass]="{'col-lg-8': !errorHttp, 'col-lg-12': errorHttp}">
+            <h2>
+              <span *ngIf="!errorHttp" [@fadeComponentAnimation]>
+                Weather in {{cityWeather.city.name}}, {{cityWeather.city.country}}
+              </span>
+              <span class="text-center d-block" *ngIf="errorHttp" [@fadeComponentAnimation]>
+                Sorry, we could not find the information for your request.
+              </span>
+            </h2>
           </div>
-          <div class="col">
+
+          <div class="col" *ngIf="!errorHttp" [@fadeComponentAnimation]>
             <ul class="main-weather-list">
               <li class="temp">
                 {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}

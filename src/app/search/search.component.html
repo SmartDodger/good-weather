@@ -9,13 +9,15 @@
                  [ngModelOptions]="{standalone: true}">-->
           <input type="text" placeholder="In which city to see the weather"
                  minlength="2"
+                 [(ngModel)]="resetValueSearch"
+                 [ngModelOptions]="{standalone: true}"
                  ngx-google-places-autocomplete
                  #placesRef="ngx-places"
                  [options]="options"
                  (onAddressChange)="handleAddressChange($event)">
 
-          <button type="submit" value="" (click)="getWeather()">
-            <i class="fas fa-search fa-2x"></i>
+          <button type="button" (click)="resetValue()" *ngIf="resetValueSearch.length > 3">
+            <i class="fa fa-times fa-2x"></i>
           </button>
         </form>
       </div>

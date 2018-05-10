@@ -25,12 +25,12 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     TabsModule.forRoot(),
     FormsModule,
     HttpClientModule,
     TooltipModule.forRoot(),
-    [GooglePlaceModule, BrowserModule, FormsModule],
-    [BrowserAnimationsModule]
+    GooglePlaceModule
   ],
   providers: [
     WeatherService

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
+import { fadeComponentAnimation } from '../animations/animation-component';
 
 @Component({
   selector: 'app-tabs-calendar',
   templateUrl: './tabs-calendar.component.html',
+  animations: [fadeComponentAnimation],
   styleUrls: ['./tabs-calendar.component.scss']
 })
 export class TabsCalendarComponent implements OnInit {

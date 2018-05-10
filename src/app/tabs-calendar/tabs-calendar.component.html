@@ -1,7 +1,7 @@
-<div class="container" *ngIf="!errorHttp">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-xl-10">
-      <div class="tab-container">
+      <div class="tab-container" *ngIf="!errorHttp" [@fadeComponentAnimation]>
         <tabset class="tab-calendar-day text-capitalize">
           <tab *ngFor="let item of weatherDay"
                [heading]="item.numberDay[0].dt_txt | date: 'EEE, MMM d, y'">

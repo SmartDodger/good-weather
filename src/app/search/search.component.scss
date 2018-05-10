@@ -24,14 +24,10 @@
 
     &:focus {
       outline: none;
-
-      + button[type="submit"] {
-        opacity: 1;
-      }
     }
   }
 
-  button[type="submit"] {
+  button[type="button"] {
     border: 0;
     box-shadow: none;
     cursor: pointer;
@@ -46,6 +42,10 @@
 
     &:focus {
       outline: none;
+    }
+
+    &:hover {
+      opacity: 1;
     }
   }
 

@@ -15,8 +15,9 @@ export class SearchComponent implements OnInit {
   // public searchCityTest = 'Kiev, UA';
   // public searchCity = this.searchCityTest.split(',')[0];
   // public searchCountry = this.searchCityTest.split(',')[1];
-  public searchCity = 'Kiev';
-  public searchCountry = 'UA';
+  public resetValueSearch = 'Kiev, UA';
+  public searchCity = '';
+  public searchCountry = '';
   public errorHttp: boolean;
   public options = {
     types: ['(cities)']
@@ -26,21 +27,18 @@ export class SearchComponent implements OnInit {
     this.searchCity = address.name;
     this.searchCountry = address.address_components[2].short_name;
     console.log(this.searchCity);
+    // console.log(address);
+    this.resetValueSearch = address.formatted_address;
+
     this.getWeather();
   }
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-    // this.getWeather();
+
   }
 
   getWeather() {
-    if (this.searchCity === '') {
-      this.searchCity = 'Kiev';
-    }
-    // this.searchCity = this.searchCityTest.split(',')[0];
-    // this.searchCountry = this.searchCityTest.split(',')[1];
-
     this.weatherService.getWeather(this.searchCity, this.searchCountry)
       .subscribe(
         (res) => this.weatherService.arrayWeather$.next(res),
@@ -54,5 +52,12 @@ export class SearchComponent implements OnInit {
           this.weatherService.errorHttp$.next(this.errorHttp);
         }
       );
+
+    // this.searchCity = this.searchCityTest.split(',')[0];
+    // this.searchCountry = this.searchCityTest.split(',')[1];
+  }
+
+  resetValue() {
+    this.resetValueSearch = '';
   }
 }
