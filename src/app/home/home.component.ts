@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
+import { someCoolAnimation } from '../animations/animation-component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [someCoolAnimation]
 })
 
 export class HomeComponent implements OnInit {
