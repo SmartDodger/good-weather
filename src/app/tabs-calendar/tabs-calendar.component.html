@@ -20,9 +20,16 @@
                       {{units == 'metric' ? '&#8451;' : '&#8457;'}}
                     </li>
                     <li tooltip="{{info.weather[0].description}}"><img src="http://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt=""></li>
-                    <li tooltip="pressure">{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}} mm Hg</li>
+                    <li tooltip="pressure">
+                      <!--{{info.main.pressure * pressurehPaTOmmHg | number: '3.0-0'}}-->
+                      {{units == 'metric' ? (info.main.pressure * pressurehPaTOmmHg | number: '3.0-0') : (info.main.pressure * pressurehPaTOmmHg / 25.4 | number: '1.0-2')}}
+                      {{units == 'metric' ? 'mm Hg' : 'inHg'}}
+                    </li>
                     <li tooltip="humidity">{{info.main.humidity | number: '2.0-0'}}%</li>
-                    <li tooltip="wind speed" class="text-lowercase">{{(units == 'metric' ? info.wind.speed : (info.wind.speed * msToMph)) | number: '1.0-1'}} {{units == 'metric' ? 'm/s' : 'mph'}}</li>
+                    <li tooltip="wind speed" class="text-lowercase">
+                      {{(units == 'metric' ? info.wind.speed : (info.wind.speed * msToMph)) | number: '1.0-1'}}
+                      {{units == 'metric' ? 'm/s' : 'mph'}}
+                    </li>
                     <li tooltip="wind direction" class="row wind-direction-wrap">
                       <span class="col">
                         <span class="wind-direction {{info.main.winddeg}}">

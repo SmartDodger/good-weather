@@ -13,6 +13,11 @@ h2 {
   background: $wild-blue-yonder;
   border-radius: 4px;
   box-shadow: 2px 2px 0 1px #d3deff;
+  transition: .5s ease-in-out;
+
+  &_error {
+    margin: 50px 0 0;
+  }
 }
 
 .main-weather-list {

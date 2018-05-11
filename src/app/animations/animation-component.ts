@@ -19,7 +19,7 @@ import {query, stagger, state, trigger, keyframes, transition, style, animate} f
   ])
 ]);*/
 
-/*export const fadeComponentAnimation = trigger(
+export const fadeComponentAnimation = trigger(
   'fadeComponentAnimation', [
     transition(':enter', [
       style({transform: 'translateY(-10%)', opacity: 0}),
@@ -30,8 +30,9 @@ import {query, stagger, state, trigger, keyframes, transition, style, animate} f
       animate('300ms ease-out', style({transform: 'translateY(-10%)', opacity: 0}))
     ])
   ]
-);*/
+);
 
+/*
 export const fadeComponentAnimation =  trigger('fadeComponentAnimation', [
   state('in', style({transform: 'translateX(0)'})),
   transition('void => *', [
@@ -42,3 +43,4 @@ export const fadeComponentAnimation =  trigger('fadeComponentAnimation', [
     animate(200, style({ opacity: 0}))
   ])
 ]);
+*/
