@@ -36,6 +36,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lodash": "^4.17.10",
     "ngx-bootstrap": "^2.0.3",
     "ngx-google-places-autocomplete": "^2.0.1",
     "protractor": "~5.1.2",

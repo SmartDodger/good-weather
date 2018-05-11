@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {WeatherService} from '../services/weather.service';
+import { WeatherService } from '../services/weather.service';
+import { fadeComponentAnimation } from '../animations/animation-component';
 
 @Component({
   selector: 'app-header',
+  animations: [fadeComponentAnimation],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   public units = 'metric';
+  public errorHttp = false;
 
   constructor(private weatherService: WeatherService) {
-
+    this.weatherService.errorHttp$
+      .subscribe((errorHttp) => {
+        this.errorHttp = errorHttp;
+      });
   }
 
   valueUnits() {

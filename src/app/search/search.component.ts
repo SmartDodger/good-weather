@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -10,11 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 
 
-
 export class SearchComponent implements OnInit {
-  // public searchCityTest = 'Kiev, UA';
-  // public searchCity = this.searchCityTest.split(',')[0];
-  // public searchCountry = this.searchCityTest.split(',')[1];
   public resetValueSearch = 'Kiev, UA';
   public searchCity = '';
   public searchCountry = '';
@@ -25,11 +22,10 @@ export class SearchComponent implements OnInit {
 
   handleAddressChange(address) {
     this.searchCity = address.name;
-    this.searchCountry = address.address_components[2].short_name;
+    this.searchCountry = _.find(address.address_components, { types: ['country'] }).short_name;
     console.log(this.searchCity);
     // console.log(address);
     this.resetValueSearch = address.formatted_address;
-
     this.getWeather();
   }
   constructor(private weatherService: WeatherService) {}
@@ -52,9 +48,6 @@ export class SearchComponent implements OnInit {
           this.weatherService.errorHttp$.next(this.errorHttp);
         }
       );
-
-    // this.searchCity = this.searchCityTest.split(',')[0];
-    // this.searchCountry = this.searchCityTest.split(',')[1];
   }
 
   resetValue() {

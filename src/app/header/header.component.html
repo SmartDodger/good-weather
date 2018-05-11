@@ -9,7 +9,7 @@
             </a>
           </div>
           <div class="col text-right">
-            <div class="radio-group">
+            <div class="radio-group" *ngIf="!errorHttp" [@fadeComponentAnimation]>
               <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="valueUnits()" id="cesium">
               <label for="cesium" >&#8451;</label>
               <input type="radio" name="radio" value="imperial" [(ngModel)]="units" (change)="valueUnits()" id="fahrenheit">

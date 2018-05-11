@@ -12,7 +12,15 @@ export class TabsCalendarComponent implements OnInit {
   public weatherWeek: any;
   public daysWeek: any;
   public fiveDaysArray = [];
-  public daysWeekName = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  public daysWeekName = [
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday'
+  ];
   public dayName = [];
   public weatherDay: any;
   public pressurehPaTOmmHg = 0.75006375541921;
@@ -76,4 +84,21 @@ export class TabsCalendarComponent implements OnInit {
         this.errorHttp = errorHttp;
       });
   }
+
+  public temperature(info): number {
+    return this.units === 'metric' ? info.main.temp : ((info.main.temp) * (9 / 5) + 32);
+  }
+
+  public pressureMMHg(info): number {
+    return info.main.pressure * this.pressurehPaTOmmHg;
+  }
+
+  public pressurehInHg(info): number {
+    return info.main.pressure * this.pressurehPaTOmmHg / 25.4;
+  }
+
+  public windSpeed(info): number {
+    return this.units === 'metric' ? info.wind.speed : info.wind.speed * this.msToMph;
+  }
+
 }

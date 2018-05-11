@@ -20,6 +20,4 @@ export class WeatherService {
     this.searchCountry$.next(country);
     return this.http.get(`${this.ROOT_URL}${city},${country}&units=metric&${this.apikey}`);
   }
-
-
 }
