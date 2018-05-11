@@ -20,7 +20,7 @@
                       {{units === 'metric' ? '&#8451;' : '&#8457;'}}
                     </li>
                     <li tooltip="{{info.weather[0].description}}">
-                      <img src="http://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt="">
+                      <img src="https://openweathermap.org/img/w/{{info.weather[0].icon}}.png" alt="">
                     </li>
                     <li tooltip="pressure">
                       {{units === 'metric' ? (pressureMMHg(info) | number: '3.0-0') : (pressurehInHg(info) | number: '1.0-2')}}
