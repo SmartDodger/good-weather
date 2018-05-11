@@ -16,9 +16,9 @@
 
           <div class="col" *ngIf="!errorHttp" [@fadeComponentAnimation]>
             <ul class="main-weather-list">
-              <li class="temp">
+              <li class="temp" [ngClass]="cityWeather.list[0].main.temp >= 0 ? 'temp_yellow' : 'temp_blue'">
                 {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
-                {{(units == 'metric' ? cityWeather.list[0].main.temp : ((cityWeather.list[0].main.temp) * (9/5) + 32)) | number: '1.0-0'}}
+                {{tempValue() | number: '1.0-0'}}
                 {{units == 'metric' ? '&#8451;' : '&#8457;'}}
               </li>
               <li class="text-center">

@@ -9,8 +9,8 @@ import { fadeComponentAnimation } from '../animations/animation-component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public units = 'metric';
-  public errorHttp = false;
+  public units: string = 'metric';
+  public errorHttp: boolean = false;
 
   constructor(private weatherService: WeatherService) {
     this.weatherService.errorHttp$

@@ -32,6 +32,14 @@ h2 {
       font-size: 32px;
       padding: 19px 0;
       float: left;
+
+      &_yellow {
+        color: $yellow;
+      }
+
+      &_blue {
+        color: $darkblue;
+      }
     }
   }
 }

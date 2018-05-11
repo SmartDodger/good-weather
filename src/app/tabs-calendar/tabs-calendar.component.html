@@ -15,7 +15,10 @@
                   </span>
                   <hr class="line">
                   <ul class="time-weather-list">
-                    <li class="time-weather-list__temp" tooltip="temperature">
+                    <li class="time-weather-list__temp"
+                        tooltip="temperature"
+                        [ngClass]="info.main.temp >= 0 ? 'time-weather-list__temp_yellow' : 'time-weather-list__temp_blue'">
+                      {{info.main.temp > 0 ? '+' : ''}}
                       {{temperature(info) | number: '1.0-0'}}
                       {{units === 'metric' ? '&#8451;' : '&#8457;'}}
                     </li>

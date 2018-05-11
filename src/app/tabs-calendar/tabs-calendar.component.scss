@@ -44,8 +44,15 @@
 
     &.time-weather-list__temp {
       font-size: 22px;
-      color: yellow;
       margin-bottom: 20px;
+
+      &_yellow {
+        color: $yellow;
+      }
+
+      &_blue {
+        color: $darkblue;
+      }
     }
   }
 }

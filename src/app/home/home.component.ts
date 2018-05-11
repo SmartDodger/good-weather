@@ -10,11 +10,11 @@ import { fadeComponentAnimation } from '../animations/animation-component';
 })
 
 export class HomeComponent implements OnInit {
-  public city = 'Kiev';
-  public country = 'UA';
+  public city: string = 'Kiev';
+  public country: string = 'UA';
   public cityWeather: any;
-  public units = 'metric';
-  public errorHttp = false;
+  public units: string = 'metric';
+  public errorHttp: boolean = false;
 
   constructor(private weatherService: WeatherService) {
     this.weatherService.units$.subscribe((units) => {
@@ -39,6 +39,10 @@ export class HomeComponent implements OnInit {
       .subscribe((errorHttp) => {
         this.errorHttp = errorHttp;
       });
+  }
+
+  tempValue() {
+    return this.units === 'metric' ? this.cityWeather.list[0].main.temp : ((this.cityWeather.list[0].main.temp) * (9 / 5) + 32);
   }
 
   ngOnInit() {
