@@ -21,6 +21,7 @@
     transition: .1s;
     border-radius: 4px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+    text-overflow: ellipsis;
 
     &:focus {
       outline: none;
