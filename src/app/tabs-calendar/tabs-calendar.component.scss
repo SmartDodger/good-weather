@@ -197,6 +197,21 @@
   }
 }
 
+@media (max-width: 767px) {
+  .tab-container {
+    &__wrap {
+      overflow: hidden;
+      overflow-x: scroll;
+      display: block;
+      white-space: nowrap;
+    }
+
+    &__block {
+      max-width: 33%;
+    }
+  }
+}
+
 @media (max-width: 576px) {
   .tab-container {
     background: $wild-blue-yonder;

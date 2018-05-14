@@ -74,6 +74,18 @@ h2 {
   }
 }
 
+@media (max-width: 767px) {
+  h2 {
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .weather-now {
+    height: auto;
+    padding: 5px 15px 0;
+  }
+}
+
 @media (max-width: 576px) {
   .main-weather-list {
     li {

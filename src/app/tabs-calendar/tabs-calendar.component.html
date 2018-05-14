@@ -6,7 +6,7 @@
           <tab *ngFor="let item of weatherDay"
                [heading]="item.numberDay[0].dt_txt | date: 'EEE, MMM d, y'">
             <div class="container">
-              <ul  class="text-center row">
+              <ul  class="text-center row tab-container__wrap">
                 <li *ngFor="let info of item.numberDay" class="d-inline-block col tab-container__block">
                   <span class="time d-inline-block">
                     <span class="d-block">
