@@ -63,3 +63,13 @@
 :-moz-placeholder { /* Firefox 18- */
   color: rgba(60, 78, 120, 0.45);
 }
+
+@media (max-width: 767px) {
+  .search-wrap {
+    height: 56px;
+  }
+
+  .form-search {
+    margin: 10px 0; 
+  }
+}

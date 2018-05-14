@@ -76,6 +76,16 @@
   }
 }
 
+@media (max-width: 767px) {
+  .header {
+    height: 50px;
+  }
+
+  .logo {
+    line-height: 50px;
+  }
+}
+
 @media (max-width: 576px) {
   .logo {
     a {
