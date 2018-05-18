@@ -3,12 +3,12 @@
     <div class="row justify-content-center">
       <div class="col-xl-10">
         <div class="row align-items-center">
-          <div class="col-7 logo">
+          <div class="col logo">
             <a routerLink="">
               Good Weather
             </a>
           </div>
-          <div class="col text-right">
+          <div class="col-auto text-right">
             <div class="radio-group" *ngIf="!errorHttp" [@fadeComponentAnimation]>
               <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="valueUnits()" id="cesium">
               <label for="cesium" >&#8451;</label>
@@ -17,8 +17,13 @@
               <span class="select-radio"></span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          <div class="col-auto">
+            <a routerLink="../auth" class="sign-in">
+              <fa name="sign-in" size="2x"></fa>
+            </a>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- col -->
+    </div> <!-- row -->
+  </div> <!-- container -->
 </header>

@@ -1,0 +1,11 @@
+.auth {
+  background-image: radial-gradient($white 0.1%, $darkblue 110%);
+  min-height: 100vh;
+
+  &__form {
+    // background: $white;
+    padding: 20px;
+    border-radius: 3px;
+    // box-shadow: 0 0 30px $darkblue;
+  }
+}
