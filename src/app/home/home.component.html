@@ -1,36 +1,4 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xl-10">
-      <div class="weather-now" [ngClass]="{'weather-now_error': errorHttp}">
-        <div class="row" *ngIf="cityWeather">
-          <div [ngClass]="{'col-lg-8': !errorHttp, 'col-lg-12': errorHttp}">
-            <h2>
-              <span *ngIf="!errorHttp">
-                Weather in {{cityWeather.city.name}}, {{cityWeather.city.country}}
-              </span>
-              <span class="text-center d-block" *ngIf="errorHttp">
-                Sorry, we could not find the information for your request.
-              </span>
-            </h2>
-          </div>
-
-          <div class="col" *ngIf="!errorHttp" [@fadeComponentAnimation]>
-            <ul class="main-weather-list">
-              <li class="temp" [ngClass]="cityWeather.list[0].main.temp >= 0 ? 'temp_yellow' : 'temp_blue'">
-                {{cityWeather.list[0].main.temp > 0 ? '+' : ''}}
-                {{tempValue() | number: '1.0-0'}}
-                {{units == 'metric' ? '&#8451;' : '&#8457;'}}
-              </li>
-              <li class="text-center">
-                <img src="https://openweathermap.org/img/w/{{this.cityWeather.list[0].weather[0].icon}}.png" alt="">
-              </li>
-              <li class="text-center text-capitalize">
-                {{cityWeather.list[0].weather[0].description}}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> <!-- weather-now -->
-    </div> <!-- col -->
-  </div> <!-- row -->
-</div> <!-- container -->
+<app-header></app-header>
+<app-search></app-search>
+<app-weather-now></app-weather-now>
+<app-tabs-calendar></app-tabs-calendar>

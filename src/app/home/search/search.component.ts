@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../services/weather.service';
+import { WeatherService } from '../../services/weather.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as _ from 'lodash';
 
