@@ -1,22 +1,42 @@
 <div class="container-fluid">
   <div class="row auth justify-content-center align-items-center">
     <div class="col-3">
+
+      <div class="row">
+        <div class="col logo text-center">
+          <a routerLink="../../home">
+            Good Weather
+          </a>
+        </div>
+      </div>
+
+      <h2 class="auth-title">Login or <a routerLink="../signup">Register</a></h2>
       <form class="auth__form">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <div class="form-group form-group_border-gradient" [class.active]="email.length > 0">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="email"
+                 [ngModelOptions]="{standalone: true}">
+          <label for="exampleInputEmail1">Email</label>
         </div>
-        <div class="form-group">
+        <div class="form-group form-group_border-gradient" [class.active]="password.length > 0">
+          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
+                 [ngModelOptions]="{standalone: true}">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <div class="form-group form-check">
+        <div class="form-group form-group_checkbox">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <label class="form-check-label" for="exampleCheck1">
+            Remember Me
+            <i class="fa fa-check"></i>
+          </label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" (click)="login()" class="btn-submit">Submit</button>
       </form>
+
+      <div class="row">
+        <div class="col text-center">
+          <a routerLink="../../home" class="return-link">< Return to the home page</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
