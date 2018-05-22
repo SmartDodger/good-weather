@@ -18,7 +18,7 @@
           <label for="exampleInputEmail1">Email</label>
         </div>
         <div class="form-group form-group_border-gradient" [class.active]="password.length > 0">
-          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password"
+          <input type="password" class="form-control password" id="exampleInputPassword1" [(ngModel)]="password"
                  [ngModelOptions]="{standalone: true}">
           <label for="exampleInputPassword1">Password</label>
         </div>
@@ -31,6 +31,8 @@
         </div>
         <button type="button" (click)="login()" class="btn-submit">Submit</button>
       </form>
+
+      <button type="button" (click)="signinGoogle()">Google</button>
 
       <div class="row">
         <div class="col text-center">

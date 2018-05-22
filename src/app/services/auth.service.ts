@@ -4,11 +4,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/observable';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 
 export class AuthService {
   public user: Observable<firebase.User>;
+  public errorEmail$: Subject<any> = new Subject();
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
@@ -22,6 +24,7 @@ export class AuthService {
         console.log('Success!', value);
       })
       .catch(err => {
+        this.errorEmail$.next(err.message);
         console.log('Something went wrong:', err.message);
       });
   }

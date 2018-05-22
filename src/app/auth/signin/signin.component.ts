@@ -19,6 +19,10 @@ export class SigninComponent implements OnInit {
     this.email = this.password = '';
   }
 
+  signinGoogle() {
+    this.authService.signInWithGoogle();
+  }
+
   ngOnInit() {
     this.email = this.password = '';
   }
