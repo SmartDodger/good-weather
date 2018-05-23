@@ -17,6 +17,14 @@ export class WeatherNowComponent implements OnInit {
   public errorHttp: boolean = false;
 
   constructor(private weatherService: WeatherService) {
+
+  }
+
+  tempValue() {
+    return this.units === 'metric' ? this.cityWeather.list[0].main.temp : ((this.cityWeather.list[0].main.temp) * (9 / 5) + 32);
+  }
+
+  ngOnInit() {
     this.weatherService.units$.subscribe((units) => {
       this.units = units;
     });
@@ -39,13 +47,5 @@ export class WeatherNowComponent implements OnInit {
       .subscribe((errorHttp) => {
         this.errorHttp = errorHttp;
       });
-  }
-
-  tempValue() {
-    return this.units === 'metric' ? this.cityWeather.list[0].main.temp : ((this.cityWeather.list[0].main.temp) * (9 / 5) + 32);
-  }
-
-  ngOnInit() {
-
   }
 }

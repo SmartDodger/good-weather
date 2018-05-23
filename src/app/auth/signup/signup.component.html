@@ -23,7 +23,7 @@
         </div>
         <div class="form-group form-group_border-gradient" [class.active]="signupForm.controls['password'].value > 0">
           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
-                 [ngClass]="{'password_green': passwordGet().value.length >= 4}" required>
+                 [ngClass]="{'password_green': passwordGet().value.length >= 4}">
           <label for="exampleInputPassword1">Password</label>
           <div *ngIf="passwordGet().invalid && (passwordGet().dirty || passwordGet().touched)" class="mt-1 text-warning">
 

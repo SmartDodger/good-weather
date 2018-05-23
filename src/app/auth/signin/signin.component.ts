@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,22 +10,17 @@ import {AuthService} from '../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  public email: string;
-  public password: string;
-
-  constructor(public authService: AuthService) {}
-
-  login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';
-  }
+  constructor(public authService: AuthService, private router: Router) {}
 
   signinGoogle() {
-    this.authService.signInWithGoogle();
+    this.authService.signInWithGoogle()
+      .then(res => {
+      this.router.navigate(['/home']);
+    });
   }
 
   ngOnInit() {
-    this.email = this.password = '';
+
   }
 
 }
