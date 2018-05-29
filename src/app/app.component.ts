@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  constructor() {}
+  constructor(private authService: AuthService) {
+    this.authService.checkCurrentUser();
+  }
 }
 

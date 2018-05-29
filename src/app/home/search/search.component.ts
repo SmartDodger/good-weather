@@ -23,8 +23,6 @@ export class SearchComponent implements OnInit {
   handleAddressChange(address) {
     this.searchCity = address.name;
     this.searchCountry = _.find(address.address_components, { types: ['country'] }).short_name;
-    console.log(this.searchCity);
-    // console.log(address);
     this.resetValueSearch = address.formatted_address;
     this.getWeather();
   }
@@ -34,7 +32,10 @@ export class SearchComponent implements OnInit {
 
   }
 
-  getWeather() {
+  getWeather(): void {
+    this.errorHttp = true;
+    this.weatherService.errorHttp$.next(this.errorHttp);
+
     this.weatherService.getWeather(this.searchCity, this.searchCountry)
       .subscribe(
         (res) => this.weatherService.arrayWeather$.next(res),
@@ -50,7 +51,7 @@ export class SearchComponent implements OnInit {
       );
   }
 
-  resetValue() {
+  resetValue(): void {
     this.resetValueSearch = '';
   }
 }

@@ -1,4 +1,13 @@
 <app-header></app-header>
 <app-search></app-search>
-<app-weather-now></app-weather-now>
-<app-tabs-calendar></app-tabs-calendar>
+<div class="container" *ngIf="errorHttp">
+  <div class="row">
+    <div class="col text-center mt-5">
+      <fa name="spinner" animation="spin" size="3x" class="spinner"></fa>
+    </div>
+  </div>
+</div>
+<div *ngIf="!errorHttp">
+  <app-weather-now></app-weather-now>
+  <app-tabs-calendar></app-tabs-calendar>
+</div>

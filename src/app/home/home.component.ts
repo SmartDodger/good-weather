@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
+  public errorHttp: boolean;
 
-
-  constructor() {
+  constructor(private weatherService: WeatherService) {
 
   }
 
   ngOnInit() {
-
+    this.weatherService.errorHttp$
+      .subscribe((errorHttp) => {
+        this.errorHttp = errorHttp;
+      });
   }
 }
 

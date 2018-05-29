@@ -8,6 +8,9 @@
               Good Weather
             </a>
           </div>
+          <div class="col-auto text-white" *ngIf="userEmailVerified">
+            {{userEmail}}
+          </div>
           <div class="col-auto text-right">
             <div class="radio-group" *ngIf="!errorHttp" [@fadeComponentAnimation]>
               <input type="radio" name="radio" value="metric" [(ngModel)]="units" (change)="valueUnits()" id="cesium">
@@ -18,8 +21,11 @@
             </div>
           </div>
           <div class="col-auto">
-            <a routerLink="/auth" class="sign-in">
+            <a routerLink="/auth" class="sign-in" *ngIf="!userEmailVerified">
               <fa name="sign-in" size="2x"></fa>
+            </a>
+            <a class="sign-in" (click)="signOut()"  *ngIf="userEmailVerified">
+              <fa name="sign-out" size="2x"></fa>
             </a>
           </div>
         </div> <!-- row -->
