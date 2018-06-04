@@ -70,7 +70,7 @@ export class AuthService {
     });
   }
 
-  signInWithFacebook() {
+  signInWithFacebook(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.firebaseAuth.auth
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())

@@ -39,11 +39,11 @@ export class HeaderComponent implements OnInit {
       this.currentUser = currentUser;
       this.userEmailVerified = currentUser.emailVerified;
       this.userEmail = currentUser.email;
-      console.log(currentUser);
+      // console.log(currentUser);
     });
   }
 
   ngOnInit() {
-    this.checkCurrentUser();
+
   }
 }
