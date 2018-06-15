@@ -1,0 +1,102 @@
+@import '../../../assets/scss/utils/colors';
+
+.markers {
+  &__mark {
+    position: relative;
+    border-radius: 4px;
+    background: $darkblue;
+    color: $white;
+    cursor: pointer;
+    padding: 4px 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    label {
+      margin-left: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: $green;
+      }
+
+      &.active {
+        &:hover {
+          color: $texas-rose;
+        }
+      }
+    }
+
+    .search-city {
+      width: 0;
+      border: 0;
+      color: $white;
+      background: $darkblue;
+      transition: .2s ease-in-out;
+      border-bottom: 1px solid transparent;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.active {
+        width: 140px;
+        border-bottom-color: $white;
+      }
+    }
+  }
+}
+
+.btn-add-mark {
+  border-radius: 4px;
+  background: $darkblue;
+  color: $white;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-weight: 600;
+  border: 0;
+  transition: .2s;
+
+  &:hover {
+    background: $tory-blue;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+/deep/ .markers .tooltip-inner {
+  background-color: $black;
+  color: $white;
+  width: 100px;
+}
+
+/deep/ .markers .tooltip .tooltip-arrow::before,
+/deep/ .markers .tooltip .tooltip-arrow {
+  border-left-color: $black;
+}
+/deep/ .markers .bs-tooltip-right.tooltip .tooltip-arrow.arrow {
+  top: calc(50% - 6px);
+}
+
+/deep/ .markers .bs-tooltip-right.right {
+  // top: 0 !important;
+}
+
+.pac-container {
+  top: 0px !important;
+  border: 0;
+
+  &::after {
+    display: none;
+  }
+
+  .pac-item {
+    &:first-child {
+      border: 0;
+    }
+  }
+}

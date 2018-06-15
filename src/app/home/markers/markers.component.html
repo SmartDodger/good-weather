@@ -1,0 +1,55 @@
+<div class="container markers">
+  <div class="row justify-content-center mt-2">
+    <div class="col-xl-10">
+      <div class="row">
+        <div class="col-auto">
+          <button class="btn-add-mark" type="button" (click)="addMark()"
+                  tooltip="Add Mark"
+                  placement="right"
+                  [hidden]="hiddenBtnAddMarks">
+            <i class="fa fa-plus"></i>
+          </button>
+          <button class="btn-add-mark" type="button" (click)="removeMark()"
+                  tooltip="Remove Mark"
+                  placement="right"
+                  [hidden]="hiddenBtnRemoveMarks">
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <div class="col-auto" *ngIf="currentUserCitiesDocData">
+          <div class="row">
+            <div class="col-auto" *ngFor="let item of currentUserCitiesDocData.cities; let i = index">
+              <div class="markers__mark">
+                <span (click)="cityWeather(item)">
+                  {{item.name}}
+                  <span [hidden]="!(item.name.length > 0)">,</span>
+                  {{item.country}}
+                </span>
+                <input type="text"
+                       id="inputMark{{i}}"
+                       placeholder=""
+                       minlength="2"
+                       [disabled]="!item.toggle"
+                       [(ngModel)]="valueSearch"
+                       [ngModelOptions]="{standalone: true}"
+                       ngx-google-places-autocomplete
+                       #placesRef="ngx-places"
+                       [options]="options"
+                       class="search-city"
+                       [ngClass]="item.toggle ? 'active' : ''"
+                       (onAddressChange)="handleAddressChange($event, i, item)">
+                <label for="inputMark{{i}}" (click)="item.toggle=!item.toggle"
+                       [hidden]="item.toggle">
+                  <i class="fa fa-edit"></i>
+                </label>
+                <label [hidden]="!item.toggle" (click)="checkValue(item)"  [ngClass]="item.toggle ? 'active' : ''">
+                  <i class="fa fa-times"></i>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div> <!-- col -->
+      </div> <!-- row -->
+    </div> <!-- col -->
+  </div> <!-- row -->
+</div> <!-- container -->

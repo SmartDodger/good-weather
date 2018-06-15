@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import * as _ from 'lodash';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/finally';
 
 
 @Component({
@@ -13,9 +14,10 @@ import * as _ from 'lodash';
 
 export class SearchComponent implements OnInit {
   public resetValueSearch = 'Kiev, UA';
-  public searchCity = '';
-  public searchCountry = '';
+  public searchCity = 'Kiev';
+  public searchCountry = 'UA';
   public errorHttp: boolean;
+  public spinner: boolean;
   public options = {
     types: ['(cities)']
   };
@@ -26,27 +28,28 @@ export class SearchComponent implements OnInit {
     this.resetValueSearch = address.formatted_address;
     this.getWeather();
   }
-  constructor(private weatherService: WeatherService) {}
-
-  ngOnInit() {
-
+  constructor(private weatherService: WeatherService) {
+    this.getWeather();
   }
 
-  getWeather(): void {
-    this.errorHttp = true;
-    this.weatherService.errorHttp$.next(this.errorHttp);
-
+  getWeather() {
+    this.spinner = true;
+    this.weatherService.spinner$.next(this.spinner);
     this.weatherService.getWeather(this.searchCity, this.searchCountry)
       .subscribe(
-        (res) => this.weatherService.arrayWeather$.next(res),
-        (err: HttpErrorResponse) => {
-          this.errorHttp = true;
-          this.weatherService.errorHttp$.next(this.errorHttp);
-          console.error(err);
-        },
-        () => {
+        (res) => {
+          this.weatherService.arrayWeather$.next(res);
           this.errorHttp = false;
           this.weatherService.errorHttp$.next(this.errorHttp);
+          this.spinner = false;
+          this.weatherService.spinner$.next(this.spinner);
+        },
+        (err) => {
+          this.errorHttp = true;
+          this.weatherService.errorHttp$.next(this.errorHttp);
+          this.spinner = false;
+          this.weatherService.spinner$.next(this.spinner);
+          console.error(err);
         }
       );
   }
@@ -54,4 +57,6 @@ export class SearchComponent implements OnInit {
   resetValue(): void {
     this.resetValueSearch = '';
   }
+
+  ngOnInit() {}
 }

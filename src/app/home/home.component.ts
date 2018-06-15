@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
-import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,20 +9,17 @@ import { AuthService } from '../services/auth.service';
 
 export class HomeComponent implements OnInit {
   public errorHttp: boolean;
+  public spinner: boolean;
 
-  constructor(private weatherService: WeatherService, private authService: AuthService) {
+  constructor(private weatherService: WeatherService) {
     this.weatherService.errorHttp$
-      .subscribe((errorHttp) => {
-        this.errorHttp = errorHttp;
-      });
-    setTimeout(() => {
-      this.authService.checkCurrentUser();
-    }, 2200);
+      .subscribe((errorHttp) => this.errorHttp = errorHttp);
+    this.weatherService.spinner$
+      .subscribe((spinner) => this.spinner = spinner);
   }
 
-  ngOnInit() {
 
-  }
+  ngOnInit() {}
 
 }
 

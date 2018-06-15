@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 
@@ -21,8 +21,8 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
-    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
   providers: [AuthService],

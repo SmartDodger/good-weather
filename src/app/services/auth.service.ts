@@ -66,11 +66,10 @@ export class AuthService {
           console.log(err);
           reject(err);
         });
-
     });
   }
 
-  signInWithFacebook(): Promise<any> {
+  /*signInWithFacebook(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.firebaseAuth.auth
         .signInWithPopup(new firebase.auth.FacebookAuthProvider())
@@ -82,7 +81,7 @@ export class AuthService {
           reject(err);
         });
     });
-  }
+  }*/
 
   checkCurrentUser() {
     this.firebaseAuth.auth.onAuthStateChanged((user) => {

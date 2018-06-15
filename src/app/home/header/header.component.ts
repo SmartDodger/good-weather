@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
       .subscribe((errorHttp) => {
         this.errorHttp = errorHttp;
       });
+    this.checkCurrentUser();
   }
 
   valueUnits(): void {
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit {
   checkCurrentUser(): void {
     this.userEmailVerified = false;
     this.userEmail = '';
+    this.authService.checkCurrentUser();
     this.authService.currentUser$.subscribe((currentUser) => {
       this.currentUser = currentUser;
       this.userEmailVerified = currentUser.emailVerified;

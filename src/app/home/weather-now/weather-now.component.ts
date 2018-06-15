@@ -21,17 +21,15 @@ export class WeatherNowComponent implements OnInit {
   }
 
   tempValue() {
-    return this.units === 'metric' ? this.cityWeather.list[0].main.temp : ((this.cityWeather.list[0].main.temp) * (9 / 5) + 32);
+    return this.units === 'metric' ?
+      this.cityWeather.list[0].main.temp :
+      ((this.cityWeather.list[0].main.temp) * (9 / 5) + 32);
   }
 
   ngOnInit() {
-    this.weatherService.units$.subscribe((units) => {
-      this.units = units;
-    });
-    this.weatherService.getWeather(this.city, this.country)
-      .subscribe((res) => {
-        this.weatherService.arrayWeather$.next(res);
-      });
+    this.weatherService.units$
+      .subscribe((units) => this.units = units);
+
     this.weatherService.searchCity$
       .subscribe((city) => this.city = city);
 
@@ -39,13 +37,9 @@ export class WeatherNowComponent implements OnInit {
       .subscribe((country) => this.country = country);
 
     this.weatherService.arrayWeather$
-      .subscribe((cityWeather) => {
-        this.cityWeather = cityWeather;
-      });
+      .subscribe((cityWeather) => this.cityWeather = cityWeather);
 
     this.weatherService.errorHttp$
-      .subscribe((errorHttp) => {
-        this.errorHttp = errorHttp;
-      });
+      .subscribe((errorHttp) => this.errorHttp = errorHttp);
   }
 }

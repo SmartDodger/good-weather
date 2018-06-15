@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from '../services/weather.service';
 import { HomeRoutingModule } from './home-routing.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { MarkersComponent } from './markers/markers.component';
+
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HeaderComponent,
     SearchComponent,
     TabsCalendarComponent,
-    WeatherNowComponent
+    WeatherNowComponent,
+    MarkersComponent
   ],
   providers: [
     WeatherService
